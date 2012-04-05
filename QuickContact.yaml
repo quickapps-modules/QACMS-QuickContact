@@ -1,0 +1,7 @@
+---
+name: Contact Form
+description: Enables the use of contact forms.
+category: Email
+version: 1.0
+core: 1.x
+author: 'Christopher Castro <chris@quickapps.es>'
