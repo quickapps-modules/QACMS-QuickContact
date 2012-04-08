@@ -15,7 +15,7 @@ class InstallComponent extends Component {
               `selected` tinyint(4) NOT NULL COMMENT 'Flag to indicate whether or not category is selected by default. (1 = Yes, 0 = No)',
               `ordering` int(11) NOT NULL,
               PRIMARY KEY (`id`)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;        
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
         ");
 
         // Add link in Navigation menu
@@ -39,6 +39,21 @@ class InstallComponent extends Component {
             )
         );
 
+        // Add a radio button to user's "my account" form
+        ClassRegistry::init('User.User')->attachFieldInstance(
+            array(
+                'label' => 'Personal contact form',
+                'name' => 'field_user_contact_form',
+                'field_module' => 'FieldList',
+                'settings' => array(
+                    'type' => 'radio',
+                    'options' => "yes|Yes\nno|No"
+                ),
+                'description' => 'Allow other users to contact you via a personal contact form which keeps your e-mail address hidden. Note that some privileged users such as site administrators are still able to contact you even if you choose to disable this feature.',
+                'locked' => 1
+            )
+        );
+
         return true;
     }
 
@@ -49,6 +64,11 @@ class InstallComponent extends Component {
     public function afterUninstall() {
         // Remove DB table:
         $this->Installer->sql("DROP TABLE `#__qc_categories`;");
+
+        // Remove user chekbox
+        if ($fieldInstance = ClassRegistry::init('Field.Field')->findByName('field_user_contact_form')) {
+            ClassRegistry::init('User.User')->detachFieldInstance($fieldInstance['Field']['id']);
+        }
 
         // Remove link added in menus:
         /**

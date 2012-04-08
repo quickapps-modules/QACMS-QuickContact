@@ -6,7 +6,16 @@
 
 <h3>Uses</h3>
 <dl>
-    <dt>Site contact form</dt>
+    <dt>User contact forms</dt>
+    <dd>
+        Site users can be contacted with a user contact form that keeps their e-mail address private.
+        Users may enable or disable their personal contact forms by editing their My account page.
+        If enabled, a Contact tab leads to a personal contact form displayed on their user profile.
+        Site administrators are still able to use the contact form, even if has been disabled.
+        The Contact tab is not shown when you view your own profile.
+    </dd>
+
+    <dt>Site-wide contact forms</dt>
     <dd>
         The <?php echo $this->Html->link('Contact page', '/contact'); ?> provides a simple form for users with the 
         <em>Use the site contact form</em> permission to send comments, feedback, or other requests.
@@ -36,7 +45,7 @@
     echo $this->Html->nestedList(
         array(
             $this->Html->link('Contact form categories', '/admin/quick_contact/contact/categories'),
-            $this->Html->link('Configure Contact permissions', '/admin/user/permissions')
+            $this->Html->link('Configure contact permissions', '/admin/user/permissions')
         )
     );
 ?>

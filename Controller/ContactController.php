@@ -44,7 +44,41 @@ class ContactController extends AppController {
         $this->redirect($this->referer());
     }
 
-    public function form() {
+    public function site_form() {
+        $this->__doForm();
+
+    }
+
+    public function user_form($username) {
+        $this->__doForm($username);
+    }
+
+    private function __doForm($username = false) {
+        if ($username) {
+            $noContact = false;
+
+            if ($user = ClassRegistry::init('User.User')->findByUsername($username)) {
+                if (!QuickApps::is('user.admin')) {
+                    $contact_form = Set::extract('/Field[name=field_user_contact_form]/FieldData', $user);
+
+                    if (count($contact_form) === 1) {
+                        $contact_form = $contact_form[0]['FieldData']['data'];
+                        $noContact = $contact_form !== 'yes';
+                    } else {
+                        $noContact = true;
+                    }
+                }
+            } else {
+                $noContact = true;
+            }
+
+            if ($noContact) {
+                $this->redirect('/');
+            } else {
+                $this->set('username', $username);
+            }
+        }
+
         if (isset($this->data['Contact'])) {
             $this->Contact->set($this->data);
 
@@ -56,7 +90,7 @@ class ContactController extends AppController {
                 App::uses('CakeEmail', 'Network/Email');
 
                 $category = $this->ContactCategory->findById($this->data['Contact']['category']);
-                $recipients = explode(',', $category['ContactCategory']['recipients']);
+                $recipients = $username ? array($user['User']['email']) : explode(',', $category['ContactCategory']['recipients']);
                 $email = $this->__emailClass();
 
                 $email->from(Configure::read('Variable.site_mail'), Configure::read('Variable.site_name'))

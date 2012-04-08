@@ -1,8 +1,11 @@
 <?php echo $this->Html->useTag('fieldsetstart', __d('quick_contact', 'E-mail transport')); ?>
     <?php
+        $value = !isset($this->data['Module']['settings']['transport']) ? 'php' : $this->data['Module']['settings']['transport'];
+
         echo $this->Form->input('Module.settings.transport',
             array(
                 'type' => 'radio',
+                'value' => $value,
                 'options' => array(
                     'php' => 'PHP mail() function',
                     'smtp' => 'SMTP'
