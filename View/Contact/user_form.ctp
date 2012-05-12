@@ -1,18 +1,29 @@
 <div class="node node-full">
-    <h2 class="node-title"><?php echo __d('quick_contact', 'Contact'); ?></h2>
+	<h2 class="node-title"><?php echo __d('quick_contact', 'Contact'); ?></h2>
 
-    <?php $name = QuickApps::is('user.logged') ? CakeSession::read('Auth.User.name') : ''; ?>
-    <?php $email = QuickApps::is('user.logged') ? CakeSession::read('Auth.User.email') : ''; ?>
-    <?php echo $this->Form->create('Contact'); ?>
-    <?php echo $this->Form->input('Contact.name', array('label' => __d('quick_contact', 'Your name *'), 'value' => $name)); ?>
-    <?php echo $this->Form->input('Contact.email', array('label' => __d('quick_contact', 'Your email address *'), 'value' => $email)); ?>
-    <?php echo $this->Form->input('Contact.subject', array('label' => 'Subject *')); ?>
+	<?php
+		if (!isset($this->data['Contact']['name'])) {
+			$name = QuickApps::is('user.logged') ? CakeSession::read('Auth.User.name') : '';
+		} else {
+			$name = $this->data['Contact']['name'];
+		}
 
-    <?php echo $this->Form->label(__d('quick_contact', 'To')); ?>
-    <?php echo $this->Html->link($username, '/user/profile/' . $username); ?>
+		if (!isset($this->data['Contact']['email'])) {
+			$email = QuickApps::is('user.logged') ? CakeSession::read('Auth.User.email') : '';
+		} else {
+			$email = $this->data['Contact']['email'];
+		}
+	?>
+	<?php echo $this->Form->create('Contact'); ?>
+	<?php echo $this->Form->input('Contact.name', array('label' => __d('quick_contact', 'Your name *'), 'value' => $name)); ?>
+	<?php echo $this->Form->input('Contact.email', array('label' => __d('quick_contact', 'Your email address *'), 'value' => $email)); ?>
+	<?php echo $this->Form->input('Contact.subject', array('label' => 'Subject *')); ?>
 
-    <?php echo $this->Form->input('Contact.message', array('type' => 'textarea', 'label' => __d('quick_contact', 'Message *'))); ?>
-    <?php echo $this->Form->input('Contact.copy', array('type' => 'checkbox', 'label' => __d('quick_contact', 'Send yourself a copy.'))); ?>
+	<?php echo $this->Form->label(__d('quick_contact', 'To')); ?>
+	<?php echo $this->Html->link($username, '/user/profile/' . $username); ?>
 
-    <p><?php echo $this->Form->end('Send message'); ?></p>
+	<?php echo $this->Form->input('Contact.message', array('type' => 'textarea', 'label' => __d('quick_contact', 'Message *'))); ?>
+	<?php echo $this->Form->input('Contact.copy', array('type' => 'checkbox', 'label' => __d('quick_contact', 'Send yourself a copy.'))); ?>
+
+	<p><?php echo $this->Form->end('Send message'); ?></p>
 </div>
