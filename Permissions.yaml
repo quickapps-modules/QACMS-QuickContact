@@ -1,19 +1,19 @@
 Controller:
-    Contact:
-        hidden:true
+	Contact:
+		hidden:true
 Preset:
-    administer:
-        name: "Administer contact forms and contact form settings"
-        acos:
-            Contact.admin_categories
-            Contact.admin_category_add
-            Contact.admin_category_edit
-            Contact.admin_category_delete
-    site_contact_form:
-        name: "Use the site-wide contact form"
-        acos:
-            Contact.site_form
-    user_contact_form:
-        name: "Use users' personal contact forms"
-        acos:
-            Contact.user_form
+	administer:
+		name: "Administer contact forms and contact form settings"
+		acos:
+			Contact.admin_categories
+			Contact.admin_category_add
+			Contact.admin_category_edit
+			Contact.admin_category_delete
+	site_contact_form:
+		name: "Use the site-wide contact form"
+		acos:
+			Contact.site_form
+	user_contact_form:
+		name: "Use users' personal contact forms"
+		acos:
+			Contact.user_form
