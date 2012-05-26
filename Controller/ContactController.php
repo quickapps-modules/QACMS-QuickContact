@@ -13,10 +13,10 @@ class ContactController extends AppController {
 	public function admin_category_add() {
 		if (isset($this->data['ContactCategory'])) {
 			if ($this->ContactCategory->save($this->data)) {
-				$this->flashMsg('Category has been created', 'success');
+				$this->flashMsg(__d('quick_contact', 'Category has been created'), 'success');
 				$this->redirect('/admin/quick_contact/contact/categories');
 			} else {
-				$this->flashMsg('Category could not be saved', 'error');
+				$this->flashMsg(__d('quick_contact', 'Category could not be saved'), 'error');
 			}
 		}
 
@@ -27,9 +27,9 @@ class ContactController extends AppController {
 	public function admin_category_edit($id) {
 		if (isset($this->data['ContactCategory'])) {
 			if ($this->ContactCategory->save($this->data['ContactCategory'])) {
-				$this->flashMsg('Category has been saved');
+				$this->flashMsg(__d('quick_contact', 'Category has been saved'));
 			} else {
-				 $this->flashMsg('Category could not be saved', 'error');
+				 $this->flashMsg(__d('quick_contact', 'Category could not be saved'), 'error');
 			}
 		}
 
@@ -40,7 +40,7 @@ class ContactController extends AppController {
 
 	public function admin_category_delete($id) {
 		$this->ContactCategory->delete($id);
-		$this->flashMsg('Category has been deleted.', 'success');
+		$this->flashMsg(__d('quick_contact', 'Category has been deleted'), 'success');
 		$this->redirect($this->referer());
 	}
 
@@ -120,10 +120,10 @@ class ContactController extends AppController {
 						->send($category['ContactCategory']['reply']);
 					}
 
-					$this->flashMsg('Your message has been sent.', 'success');
+					$this->flashMsg(__d('quick_contact', 'Your message has been sent.'), 'success');
 					$this->redirect($this->referer());
 				} else {
-					$this->flashMsg('Unable to send e-mail. Contact the site administrator if the problem persists.', 'error');
+					$this->flashMsg(__d('quick_contact', 'Unable to send e-mail. Contact the site administrator if the problem persists.'), 'error');
 				}
 			}
 		}
