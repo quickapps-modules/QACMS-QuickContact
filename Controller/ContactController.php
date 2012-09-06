@@ -83,9 +83,9 @@ class ContactController extends AppController {
 			$this->Contact->set($this->data);
 
 			if (!$this->Contact->validates()) {
-				$errors = array_values($this->Contact->invalidFields());
+				$errors = Hash::extract($this->Contact->validationErrors, '{s}.{n}');
 
-				$this->flashMsg(implode('<br />', $errors), 'error');
+				$this->flashMsg(implode('<br />', (array)$errors), 'error');
 			} else {
 				App::uses('CakeEmail', 'Network/Email');
 
