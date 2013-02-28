@@ -46,7 +46,6 @@ class ContactController extends AppController {
 
 	public function site_form() {
 		$this->__doForm();
-
 	}
 
 	public function user_form($username) {
@@ -110,8 +109,6 @@ class ContactController extends AppController {
 
 				if ($sent) {
 					if (!empty($category['ContactCategory']['reply'])) {
-						$email = $this->__emailClass();
-
 						$email->from(Configure::read('Variable.site_mail'), Configure::read('Variable.site_name'))
 						->sender(Configure::read('Variable.site_mail'), Configure::read('Variable.site_name'))
 						->replyTo(Configure::read('Variable.site_mail'), Configure::read('Variable.site_name'))
@@ -121,10 +118,11 @@ class ContactController extends AppController {
 					}
 
 					$this->flashMsg(__d('quick_contact', 'Your message has been sent.'), 'success');
-					$this->redirect($this->referer());
 				} else {
 					$this->flashMsg(__d('quick_contact', 'Unable to send e-mail. Contact the site administrator if the problem persists.'), 'error');
 				}
+
+				$this->redirect($this->referer());
 			}
 		}
 

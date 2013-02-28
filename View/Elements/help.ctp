@@ -33,10 +33,17 @@
 		This menu link can be enabled on the <?php echo $this->Html->link('Menus administration page', '/admin/menu/manage'); ?>.
 	</dd>
 
-	<dt>Customization</dt>
+	<dt>Customization using Hooktags</dt>
 	<dd>
-		If you would like additional text to appear on the site contact page, use a block.
-		You can create and edit blocks on the <?php echo $this->Html->link('Blocks administration page', '/admin/block/manage'); ?>.
+		If you would like additional text to appear on the site contact page, you can place the form as part of any
+		content-type by using two special hooktags:
+
+<pre>
+[site_contact_form /]
+[user_contact_form user=USER/]
+</pre>
+
+		<p>Where <strong>USER</strong> must be a valid user's ID (numeric, eg. 3), or user's username (string, e.g "peter_70")</p>
 	</dd>
 </dl>
 
