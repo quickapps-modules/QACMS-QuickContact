@@ -14,7 +14,7 @@ Usage
 ##### User contact forms
 
 Site users can be contacted with a user contact form that keeps their e-mail address private.
-Users may enable or disable their personal contact forms by editing their My account page.
+Users may enable or disable their personal contact forms by editing their `My account page`.
 If enabled, a Contact tab leads to a personal contact form displayed on their user profile.
 Site administrators are still able to use the contact form, even if has been disabled.
 The Contact tab is not shown when you view your own profile.
