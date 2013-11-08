@@ -12,27 +12,16 @@
 	}
 ?>
 <?php echo $this->Form->create('Contact', array('url' => '/contact')); ?>
-	<?php echo $this->Form->input('Contact.name', array('label' => __d('quick_contact', 'Your name *'), 'value' => $name)); ?>
-	<?php echo $this->Form->input('Contact.email', array('label' => __d('quick_contact', 'Your email address *'), 'value' => $email)); ?>
-	<?php echo $this->Form->input('Contact.subject', array('label' => 'Subject *')); ?>
+<?php echo $this->Form->input('Contact.name', array('label' => __d('quick_contact', 'Your name *'), 'value' => $name)); ?>
+<?php echo $this->Form->input('Contact.email', array('label' => __d('quick_contact', 'Your email address *'), 'value' => $email)); ?>
+<?php echo $this->Form->input('Contact.subject', array('label' => 'Subject *')); ?>
 
-	<?php echo $this->Form->label(__d('quick_contact', 'To')); ?>
-	<?php echo $this->Html->link($username, '/user/profile/' . $username); ?>
+<?php echo $this->Form->label(__d('quick_contact', 'To')); ?>
+<?php echo $this->Html->link($username, '/user/profile/' . $username); ?>
 
-	<?php echo $this->Form->input('Contact.message', array('type' => 'textarea', 'label' => __d('quick_contact', 'Message *'))); ?>
-	<?php echo $this->Form->input('Contact.copy', array('type' => 'checkbox', 'label' => __d('quick_contact', 'Send yourself a copy.'))); ?>
+<?php echo $this->Form->input('Contact.message', array('type' => 'textarea', 'label' => __d('quick_contact', 'Message *'))); ?>
+<?php echo $this->Form->input('Contact.copy', array('type' => 'checkbox', 'label' => __d('quick_contact', 'Send yourself a copy.'))); ?>
 
-	<?php if ($__termsOfUseEnabled): ?>
-		<fieldset class="terms-of-use">
-			<legend><?php echo $this->Layout->hooktags(Configure::read('Modules.QuickContact.settings.terms_of_use_title')); ?></legend>
-			<div class="terms-of-use-text"><?php echo $this->Layout->hooktags(Configure::read('Modules.QuickContact.settings.terms_of_use_text')); ?></div>
-			<?php echo $this->Form->input('Contact.terms_of_use', array('type' => 'checkbox', 'value' => 1, 'label' => $this->Layout->hooktags(Configure::read('Modules.QuickContact.settings.terms_of_use_label')))); ?>
-		</fieldset>
-	<?php endif; ?>
+<p><?php echo $this->Form->submit(__d('quick_contact', 'Send message')); ?></p>
 
-	<?php if ($__captchaEnabled): ?>
-		<?php echo $this->element('QuickContact.captcha'); ?>
-	<?php endif; ?>
-
-	<p><?php echo $this->Form->submit(__d('quick_contact', 'Send message')); ?></p>
 <?php echo $this->Form->end(); ?>
