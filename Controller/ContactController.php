@@ -7,6 +7,10 @@ class ContactController extends AppController {
 
 		$this->Security->disabledFields[] = 'recaptcha_challenge_field';
 		$this->Security->disabledFields[] = 'recaptcha_response_field';
+
+		App::uses('QuickContact', 'QuickContact.Lib');
+		QuickApps::addDetector('QuickContact.terms_of_use_enabled', array('QuickContact', 'termsOfUseEnabled'));
+		QuickApps::addDetector('QuickContact.captcha_enabled', array('QuickContact', 'termsOfUseEnabled'));		
 	}	
 	
 	public function admin_categories() {
@@ -52,45 +56,18 @@ class ContactController extends AppController {
 	}
 
 	public function site_form() {
-		$this->__termsOfUseEnabled(); // set view var
-		$this->__captchaEnabled(); // set view var
+		$this->set('__termsOfUseEnabled', QuickApps::is('QuickContact.terms_of_use_enabled'));
+		$this->set('__captchaEnabled', QuickApps::is('QuickContact.captcha_enabled'));
 		$this->__doForm();
 	}
 
 	public function user_form($username) {
-		$this->__termsOfUseEnabled(); // set view var
-		$this->__captchaEnabled(); // set view var
+		$this->set('__termsOfUseEnabled', QuickApps::is('QuickContact.terms_of_use_enabled'));
+		$this->set('__captchaEnabled', QuickApps::is('QuickContact.captcha_enabled'));
 		$this->__doForm($username);
 	}
 
 	private function __doForm($username = false) {
-		if (isset($this->data['Contact'])) {
-			if ($this->__captchaEnabled()) {
-				if (!defined('RECAPTCHA_API_SERVER')) {
-					App::import('Lib', 'Comment.Recaptcha');
-				}
-
-				$recaptcha = recaptcha_check_answer(
-					Configure::read('Modules.QuickContact.settings.recaptcha.private_key'),
-					env('REMOTE_ADDR'),
-					$this->data['Contact']['recaptcha_challenge_field'],
-					$this->data['Contact']['recaptcha_response_field']
-				);
-
-				if (!$recaptcha->is_valid) {
-					CakeSession::write('invalid_recaptcha', true);
-					$this->redirect($this->referer());
-				}
-			}
-
-			if ($this->__termsOfUseEnabled()) {
-				if (!isset($this->data['Contact']['terms_of_use']) || $this->data['Contact']['terms_of_use'] != '1') {
-					$this->flashMsg(__d('quick_contact', 'You must agree the terms of use.'), 'error');
-					$this->redirect($this->referer());
-				}
-			}
-		}
-
 		if ($username) {
 			$noContact = false;
 
@@ -159,9 +136,9 @@ class ContactController extends AppController {
 				} else {
 					$this->flashMsg(__d('quick_contact', 'Unable to send e-mail. Contact the site administrator if the problem persists.'), 'error');
 				}
-
-				$this->redirect($this->referer());
 			}
+
+			$this->redirect($this->referer());
 		}
 
 		$selected = $this->ContactCategory->find('first', array('conditions' => array('ContactCategory.selected' => 1)));
@@ -189,28 +166,5 @@ class ContactController extends AppController {
 		}
 
 		return $email;
-	}
-
-	private function __termsOfUseEnabled() {
-		$enable_terms_of_use = strtolower(trim(Configure::read('Modules.QuickContact.settings.enable_terms_of_use'))) == 'yes' ? true : false;
-		$terms_of_use_label = trim(Configure::read('Modules.QuickContact.settings.terms_of_use_label'));
-		$terms_of_use_title = trim(Configure::read('Modules.QuickContact.settings.terms_of_use_title'));
-		$terms_of_use_text = trim(Configure::read('Modules.QuickContact.settings.terms_of_use_text'));
-		$return = $enable_terms_of_use && !empty($terms_of_use_label) && !empty($terms_of_use_title) && !empty($terms_of_use_text);
-
-		$this->set('__termsOfUseEnabled', $return);
-
-		return $return;
-	}
-
-	private function __captchaEnabled() {
-		$use_captcha = strtolower(trim(Configure::read('Modules.QuickContact.settings.use_captcha'))) == 'yes' ? true : false;
-		$public_key = trim(Configure::read('Modules.QuickContact.settings.recaptcha.public_key'));
-		$private_key = trim(Configure::read('Modules.QuickContact.settings.recaptcha.public_key'));
-		$return = $use_captcha && !empty($public_key) && !empty($private_key);
-
-		$this->set('__captchaEnabled', $return);
-		
-		return $return;
 	}
 }

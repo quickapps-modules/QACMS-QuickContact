@@ -11,8 +11,8 @@ class QuickContactHooktagsHelper extends AppHelper {
 			'selected' => @$selected['ContactCategory']['id']
 		);
 
-		$this->__termsOfUseEnabled();
-		$this->__captchaEnabled();
+		$this->_View->set('__termsOfUseEnabled', QuickApps::is('QuickContact.terms_of_use_enabled'));
+		$this->_View->set('__captchaEnabled', QuickApps::is('QuickContact.captcha_enabled'));
 		return $this->_View->element('QuickContact.site_form', $args);
 	}
 
@@ -58,28 +58,5 @@ class QuickContactHooktagsHelper extends AppHelper {
 		} else {
 			return $this->_View->element('QuickContact.user_form', array('username' => $user['User']['username']));
 		}
-	}
-	
-	private function __termsOfUseEnabled() {
-		$enable_terms_of_use = strtolower(Configure::read('Modules.QuickContact.settings.enable_terms_of_use')) == 'yes' ? true : false;
-		$terms_of_use_label = trim(Configure::read('Modules.QuickContact.settings.terms_of_use_label'));
-		$terms_of_use_title = trim(Configure::read('Modules.QuickContact.settings.terms_of_use_title'));
-		$terms_of_use_text = trim(Configure::read('Modules.QuickContact.settings.terms_of_use_text'));
-		$return = $enable_terms_of_use && !empty($terms_of_use_label) && !empty($terms_of_use_title) && !empty($terms_of_use_text);
-
-		$this->_View->set('__termsOfUseEnabled', $return);
-
-		return $return;
-	}
-
-	private function __captchaEnabled() {
-		$use_captcha = strtolower(trim(Configure::read('Modules.QuickContact.settings.use_captcha'))) == 'yes' ? true : false;
-		$public_key = trim(Configure::read('Modules.QuickContact.settings.recaptcha.public_key'));
-		$private_key = trim(Configure::read('Modules.QuickContact.settings.recaptcha.public_key'));
-		$return = $use_captcha && !empty($public_key) && !empty($private_key);
-
-		$this->_View->set('__captchaEnabled', $return);
-		
-		return $return;
 	}	
 }
