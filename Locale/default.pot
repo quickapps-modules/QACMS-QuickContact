@@ -1,61 +1,59 @@
 # LANGUAGE translation of CakePHP Application
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: QuickContact\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2013-11-10 18:34+0000\n"
-"PO-Revision-Date: 2013-11-10 19:35+0100\n"
-"Last-Translator: Christopher Castro <chris@quickapps.es>\n"
-"Language-Team: QuickApps <chris@quickapps.es>\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.5.7\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: \Controller\ContactController.php:20
 msgid "Contact types"
-msgstr "Tipos de contactos"
+msgstr ""
 
 #: \Controller\ContactController.php:27
 msgid "Category has been created"
-msgstr "Categoría ha sido creada"
+msgstr ""
 
 #: \Controller\ContactController.php:30;43
 msgid "Category could not be saved"
-msgstr "No se pudo guardar la categoría"
+msgstr ""
 
-#: \Controller\ContactController.php:34 \View\Contact\admin_category_add.ctp:2
+#: \Controller\ContactController.php:34
+#: \View\Contact\admin_category_add.ctp:2
 #: \View\Contact\admin_category_edit.ctp:2
 msgid "Add new category"
-msgstr "Agregar nueva categoría"
+msgstr ""
 
 #: \Controller\ContactController.php:41
 msgid "Category has been saved"
-msgstr "La categoría ha sido guardada"
+msgstr ""
 
 #: \Controller\ContactController.php:54
 msgid "Category has been deleted"
-msgstr "Categoría ha sido eliminada"
+msgstr ""
 
 #: \Controller\ContactController.php:130
 msgid "Contact message confirmation"
-msgstr "Mensaje de confirmación de contacto"
+msgstr ""
 
 #: \Controller\ContactController.php:135
 msgid "Your message has been sent."
-msgstr "Su mensaje ha sido enviado."
+msgstr ""
 
 #: \Controller\ContactController.php:137
-msgid ""
-"Unable to send e-mail. Contact the site administrator if the problem "
-"persists."
+msgid "Unable to send e-mail. Contact the site administrator if the problem persists."
 msgstr ""
-"Imposible enviar el mensaje. Contacte con el administrador del sitio si el "
-"problema persiste."
 
-#: \Model\Contact.php:29 \View\Elements\captcha.ctp:72
+#: \Model\Contact.php:29
+#: \View\Elements\captcha.ctp:72
 msgid "Invalid security code."
 msgstr ""
 
@@ -65,98 +63,90 @@ msgstr ""
 
 #: \Model\ContactCategory.php:21
 msgid "Invalid e-mail addresses: %s."
-msgstr "Direcciones e-mail inválidas: %s."
+msgstr ""
 
 #: \View\Contact\admin_categories.ctp:5
 msgid "Category"
-msgstr "Categoría"
+msgstr ""
 
 #: \View\Contact\admin_categories.ctp:6
 msgid "Recipients"
-msgstr "Destinatarios"
+msgstr ""
 
 #: \View\Contact\admin_categories.ctp:7
 msgid "Selected"
-msgstr "Seleccionados"
+msgstr ""
 
 #: \View\Contact\admin_categories.ctp:7
 msgid "Yes"
-msgstr "Si"
+msgstr ""
 
 #: \View\Contact\admin_categories.ctp:7
 msgid "No"
-msgstr "No"
+msgstr ""
 
 #: \View\Contact\admin_categories.ctp:8
 msgid "Operations"
-msgstr "Operaciones"
+msgstr ""
 
 #: \View\Contact\admin_categories.ctp:10
 msgid "edit"
-msgstr "editar"
+msgstr ""
 
 #: \View\Contact\admin_categories.ctp:11
 msgid "This action cannot be undone."
-msgstr "Esta operación no puede deshacerse."
+msgstr ""
 
 #: \View\Contact\admin_categories.ctp:11
 msgid "delete"
-msgstr "eliminar"
+msgstr ""
 
 #: \View\Contact\admin_categories.ctp:16
 msgid "No categories available."
-msgstr "No hay categorías disponibles."
+msgstr ""
 
 #: \View\Contact\admin_category_add.ctp:3
 msgid "Category name *"
-msgstr "Nombre de categoría *"
+msgstr ""
 
 #: \View\Contact\admin_category_add.ctp:4
 #: \View\Contact\admin_category_edit.ctp:5
 msgid "Example: 'website feedback' or 'product information'."
-msgstr "Ejemplo: 'Sugerencias del sitio' o 'Información de producto'"
+msgstr ""
 
 #: \View\Contact\admin_category_add.ctp:7
 #: \View\Contact\admin_category_edit.ctp:8
-msgid ""
-"Example: 'webmaster@example.com' or 'sales@example.com,support@example."
-"com' . To specify multiple recipients, separate each e-mail address with a "
-"comma."
+msgid "Example: 'webmaster@example.com' or 'sales@example.com,support@example.com' . To specify multiple recipients, separate each e-mail address with a comma."
 msgstr ""
-"Ejemplo:  'webmaster@example.com' o 'ventas@example.com,soporte@example."
-"com'. Para indicar multiples destinatarios, separar cada e-mail con una coma."
 
 #: \View\Contact\admin_category_add.ctp:10
 #: \View\Contact\admin_category_edit.ctp:11
-msgid ""
-"Optional auto-reply. Leave empty if you do not want to send the user an auto-"
-"reply message."
+msgid "Optional auto-reply. Leave empty if you do not want to send the user an auto-reply message."
 msgstr ""
-"Auto-respuesta opcional. Dejar en blanco si no sea que los usuarios reciban "
-"un mensaje de auto-respuesta."
 
 #: \View\Contact\admin_category_add.ctp:13
 #: \View\Contact\admin_category_edit.ctp:14
 msgid "Check this if you would like this category to be selected by default."
-msgstr "Marcar si desea que esta categoría esté seleccioanda por defecto."
+msgstr ""
 
 #: \View\Contact\admin_category_add.ctp:16
 #: \View\Contact\admin_category_edit.ctp:17
 msgid "Save"
-msgstr "Guardar"
+msgstr ""
 
-#: \View\Contact\site_form.ctp:2 \View\Contact\user_form.ctp:2
+#: \View\Contact\site_form.ctp:2
+#: \View\Contact\user_form.ctp:2
 #: \View\Helper\QuickContactHookHelper.php:13;22
 msgid "Contact"
-msgstr "Contactar"
+msgstr ""
 
 #: \View\Elements\settings.ctp:1
 msgid "E-mail transport"
-msgstr "Protocolo de envío e-mail"
+msgstr ""
 
 #: \View\Elements\settings.ctp:22
 msgid "SMTP settings"
-msgstr "Datos SMTP"
+msgstr ""
 
 #: \View\Elements\settings.ctp:33
 msgid "Security"
@@ -263,8 +253,7 @@ msgid "Terms of use label *"
 msgstr ""
 
 #: \View\Elements\settings.ctp:139
-msgid ""
-"The text shown next to the checkbox. e.g. \"I have read and agree the terms\""
+msgid "The text shown next to the checkbox. e.g. \"I have read and agree the terms\""
 msgstr ""
 
 #: \View\Elements\settings.ctp:148
@@ -283,34 +272,40 @@ msgstr ""
 msgid "The text users must read before submit the form."
 msgstr ""
 
-#: \View\Elements\site_form.ctp:15 \View\Elements\user_form.ctp:15
+#: \View\Elements\site_form.ctp:15
+#: \View\Elements\user_form.ctp:15
 msgid "Your name *"
-msgstr "Su nombre *"
+msgstr ""
 
-#: \View\Elements\site_form.ctp:16 \View\Elements\user_form.ctp:16
+#: \View\Elements\site_form.ctp:16
+#: \View\Elements\user_form.ctp:16
 msgid "Your email address *"
-msgstr "Su email *"
+msgstr ""
 
 #: \View\Elements\site_form.ctp:17
 msgid "Subject *"
-msgstr "Asunto *"
+msgstr ""
 
 #: \View\Elements\site_form.ctp:21
 msgid "Category *"
-msgstr "Categoría *"
+msgstr ""
 
-#: \View\Elements\site_form.ctp:28 \View\Elements\user_form.ctp:22
+#: \View\Elements\site_form.ctp:28
+#: \View\Elements\user_form.ctp:22
 msgid "Message *"
-msgstr "Mensaje *"
+msgstr ""
 
-#: \View\Elements\site_form.ctp:29 \View\Elements\user_form.ctp:23
+#: \View\Elements\site_form.ctp:29
+#: \View\Elements\user_form.ctp:23
 msgid "Send yourself a copy."
-msgstr "Enviarme una copia"
+msgstr ""
 
-#: \View\Elements\site_form.ctp:43 \View\Elements\user_form.ctp:37
+#: \View\Elements\site_form.ctp:43
+#: \View\Elements\user_form.ctp:37
 msgid "Send message"
-msgstr "Enviar mensaje"
+msgstr ""
 
 #: \View\Elements\user_form.ctp:19
 msgid "To"
-msgstr "Para"
+msgstr ""
+
