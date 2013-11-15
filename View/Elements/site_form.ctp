@@ -28,7 +28,7 @@
 	<?php echo $this->Form->input('Contact.message', array('type' => 'textarea', 'label' => __d('quick_contact', 'Message *'))); ?>
 	<?php echo $this->Form->input('Contact.copy', array('type' => 'checkbox', 'label' => __d('quick_contact', 'Send yourself a copy.'))); ?>
 
-	<?php if ($__termsOfUseEnabled): ?>
+	<?php if (QuickApps::is('QuickContact.termsOfUseEnabled')): ?>
 		<fieldset class="terms-of-use">
 			<legend><?php echo $this->Layout->hooktags(Configure::read('Modules.QuickContact.settings.terms_of_use_title')); ?></legend>
 			<div class="terms-of-use-text"><?php echo $this->Layout->hooktags(Configure::read('Modules.QuickContact.settings.terms_of_use_text')); ?></div>
@@ -36,7 +36,7 @@
 		</fieldset>
 	<?php endif; ?>
 
-	<?php if ($__captchaEnabled): ?>
+	<?php if (QuickApps::is('QuickContact.captchaEnabled')): ?>
 		<?php echo $this->element('QuickContact.captcha'); ?>
 	<?php endif; ?>
 

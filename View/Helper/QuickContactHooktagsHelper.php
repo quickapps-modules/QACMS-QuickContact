@@ -11,8 +11,6 @@ class QuickContactHooktagsHelper extends AppHelper {
 			'selected' => @$selected['ContactCategory']['id']
 		);
 
-		$this->_View->set('__termsOfUseEnabled', QuickApps::is('QuickContact.terms_of_use_enabled'));
-		$this->_View->set('__captchaEnabled', QuickApps::is('QuickContact.captcha_enabled'));
 		return $this->_View->element('QuickContact.site_form', $args);
 	}
 
@@ -49,9 +47,6 @@ class QuickContactHooktagsHelper extends AppHelper {
 		} else {
 			$noContact = true;
 		}
-
-		$this->__termsOfUseEnabled();
-		$this->__captchaEnabled();
 
 		if ($noContact) {
 			return '';

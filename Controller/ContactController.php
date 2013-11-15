@@ -7,10 +7,6 @@ class ContactController extends AppController {
 
 		$this->Security->disabledFields[] = 'recaptcha_challenge_field';
 		$this->Security->disabledFields[] = 'recaptcha_response_field';
-
-		App::uses('QuickContact', 'QuickContact.Lib');
-		QuickApps::addDetector('QuickContact.terms_of_use_enabled', array('QuickContact', 'termsOfUseEnabled'));
-		QuickApps::addDetector('QuickContact.captcha_enabled', array('QuickContact', 'termsOfUseEnabled'));		
 	}	
 	
 	public function admin_categories() {
@@ -56,14 +52,10 @@ class ContactController extends AppController {
 	}
 
 	public function site_form() {
-		$this->set('__termsOfUseEnabled', QuickApps::is('QuickContact.terms_of_use_enabled'));
-		$this->set('__captchaEnabled', QuickApps::is('QuickContact.captcha_enabled'));
 		$this->__doForm();
 	}
 
 	public function user_form($username) {
-		$this->set('__termsOfUseEnabled', QuickApps::is('QuickContact.terms_of_use_enabled'));
-		$this->set('__captchaEnabled', QuickApps::is('QuickContact.captcha_enabled'));
 		$this->__doForm($username);
 	}
 

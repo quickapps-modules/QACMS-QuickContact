@@ -1,0 +1,176 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: QuickContact\n"
+"POT-Creation-Date: 2012-11-18 14:29+0000\n"
+"PO-Revision-Date: 2012-11-18 15:36+0100\n"
+"Last-Translator: Christopher Castro <chris@quickapps.es>\n"
+"Language-Team: QuickApps <chris@quickapps.es>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: \Controller\ContactController.php:9
+msgid "Contact types"
+msgstr "Tipos de contactos"
+
+#: \Controller\ContactController.php:16
+msgid "Category has been created"
+msgstr "Categoría ha sido creada"
+
+#: \Controller\ContactController.php:19;32
+msgid "Category could not be saved"
+msgstr "No se pudo guardar la categoría"
+
+#: \Controller\ContactController.php:23
+#: \View\Contact\admin_category_add.ctp:2
+#: \View\Contact\admin_category_edit.ctp:2
+msgid "Add new category"
+msgstr "Agregar nueva categoría"
+
+#: \Controller\ContactController.php:30
+msgid "Category has been saved"
+msgstr "La categoría ha sido guardada"
+
+#: \Controller\ContactController.php:43
+msgid "Category has been deleted"
+msgstr "Categoría ha sido eliminada"
+
+#: \Controller\ContactController.php:118
+msgid "Contact message confirmation"
+msgstr "Mensaje de confirmación de contacto"
+
+#: \Controller\ContactController.php:123
+msgid "Your message has been sent."
+msgstr "Su mensaje ha sido enviado."
+
+#: \Controller\ContactController.php:126
+msgid "Unable to send e-mail. Contact the site administrator if the problem persists."
+msgstr "Imposible enviar el mensaje. Contacte con el administrador del sitio si el problema persiste."
+
+#: \Model\ContactCategory.php:21
+msgid "Invalid e-mail addresses: %s."
+msgstr "Direcciones e-mail inválidas: %s."
+
+#: \View\Contact\admin_categories.ctp:5
+msgid "Category"
+msgstr "Categoría"
+
+#: \View\Contact\admin_categories.ctp:6
+msgid "Recipients"
+msgstr "Destinatarios"
+
+#: \View\Contact\admin_categories.ctp:7
+msgid "Selected"
+msgstr "Seleccionados"
+
+#: \View\Contact\admin_categories.ctp:7
+msgid "Yes"
+msgstr "Si"
+
+#: \View\Contact\admin_categories.ctp:7
+msgid "No"
+msgstr "No"
+
+#: \View\Contact\admin_categories.ctp:8
+msgid "Operations"
+msgstr "Operaciones"
+
+#: \View\Contact\admin_categories.ctp:10
+msgid "edit"
+msgstr "editar"
+
+#: \View\Contact\admin_categories.ctp:11
+msgid "This action cannot be undone."
+msgstr "Esta operación no puede deshacerse."
+
+#: \View\Contact\admin_categories.ctp:11
+msgid "delete"
+msgstr "eliminar"
+
+#: \View\Contact\admin_categories.ctp:16
+msgid "No categories available."
+msgstr "No hay categorías disponibles."
+
+#: \View\Contact\admin_category_add.ctp:3
+msgid "Category name *"
+msgstr "Nombre de categoría *"
+
+#: \View\Contact\admin_category_add.ctp:4
+#: \View\Contact\admin_category_edit.ctp:5
+msgid "Example: 'website feedback' or 'product information'."
+msgstr "Ejemplo: 'Sugerencias del sitio' o 'Información de producto'"
+
+#: \View\Contact\admin_category_add.ctp:7
+#: \View\Contact\admin_category_edit.ctp:8
+msgid "Example: 'webmaster@example.com' or 'sales@example.com,support@example.com' . To specify multiple recipients, separate each e-mail address with a comma."
+msgstr "Ejemplo:  'webmaster@example.com' o 'ventas@example.com,soporte@example.com'. Para indicar multiples destinatarios, separar cada e-mail con una coma."
+
+#: \View\Contact\admin_category_add.ctp:10
+#: \View\Contact\admin_category_edit.ctp:11
+msgid "Optional auto-reply. Leave empty if you do not want to send the user an auto-reply message."
+msgstr "Auto-respuesta opcional. Dejar en blanco si no sea que los usuarios reciban un mensaje de auto-respuesta."
+
+#: \View\Contact\admin_category_add.ctp:13
+#: \View\Contact\admin_category_edit.ctp:14
+msgid "Check this if you would like this category to be selected by default."
+msgstr "Marcar si desea que esta categoría esté seleccioanda por defecto."
+
+#: \View\Contact\admin_category_add.ctp:16
+#: \View\Contact\admin_category_edit.ctp:17
+msgid "Save"
+msgstr "Guardar"
+
+#: \View\Contact\site_form.ctp:2
+#: \View\Contact\user_form.ctp:2
+#: \View\Helper\QuickContactHookHelper.php:13;22
+msgid "Contact"
+msgstr "Contactar"
+
+#: \View\Contact\site_form.ctp:18
+#: \View\Contact\user_form.ctp:18
+msgid "Your name *"
+msgstr "Su nombre *"
+
+#: \View\Contact\site_form.ctp:19
+#: \View\Contact\user_form.ctp:19
+msgid "Your email address *"
+msgstr "Su email *"
+
+#: \View\Contact\site_form.ctp:20
+msgid "Subject *"
+msgstr "Asunto *"
+
+#: \View\Contact\site_form.ctp:24
+msgid "Category *"
+msgstr "Categoría *"
+
+#: \View\Contact\site_form.ctp:31
+#: \View\Contact\user_form.ctp:25
+msgid "Message *"
+msgstr "Mensaje *"
+
+#: \View\Contact\site_form.ctp:32
+#: \View\Contact\user_form.ctp:26
+msgid "Send yourself a copy."
+msgstr "Enviarme una copia"
+
+#: \View\Contact\site_form.ctp:34
+msgid "Send message"
+msgstr "Enviar mensaje"
+
+#: \View\Contact\user_form.ctp:22
+msgid "To"
+msgstr "Para"
+
+#: \View\Elements\settings.ctp:1
+msgid "E-mail transport"
+msgstr "Protocolo de envío e-mail"
+
+#: \View\Elements\settings.ctp:21
+msgid "SMTP settings"
+msgstr "Datos SMTP"
+
